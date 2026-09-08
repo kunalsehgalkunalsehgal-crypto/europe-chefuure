@@ -10,14 +10,15 @@ class PageController extends Controller
 {
     public function home(): View
     {
-        $homeFaqs = [
-            ['q' => 'How do I book a chauffeur in Vienna or elsewhere in Europe?', 'a' => 'You can book online through our instant quote form, by phone on +43 660 7730236, or on WhatsApp. Bookings are confirmed within 30 minutes, 24 hours a day.'],
-            ['q' => 'Do you provide airport transfers from Vienna International Airport (VIE)?', 'a' => 'Yes. We monitor every flight in real time, greet you inside the terminal with a name sign, and include waiting time and luggage assistance in the fixed price.'],
-            ['q' => 'Can I book multi-country journeys across Europe?', 'a' => 'Absolutely. Vienna is our home, but our chauffeurs regularly drive to Salzburg, Prague, Budapest, Munich, Zurich, Venice and beyond. We handle border formalities, tolls and route planning.'],
-            ['q' => 'What vehicles are in your fleet?', 'a' => 'Our fleet consists exclusively of black Mercedes-Benz vehicles: E-Class and S-Class sedans for 1–3 passengers, and V-Class and Vito vans for up to 8 passengers with generous luggage capacity.'],
-            ['q' => 'Are your drivers English-speaking?', 'a' => 'Every chauffeur speaks fluent English in addition to German. Several drivers also speak Italian, French, Russian or Arabic — just let us know when booking.'],
-            ['q' => 'Do you offer fixed prices?', 'a' => 'Yes. Every quote is a fully-inclusive fixed price: chauffeur, vehicle, fuel, tolls, parking, taxes, meet-and-greet and complimentary waiting time. No hidden fees.'],
-        ];
+        // 'homeFaqs' => config('site.faqs'),
+        // $homeFaqs = [
+        //     ['q' => 'How do I book a chauffeur in Vienna or elsewhere in Europe?', 'a' => 'You can book online through our instant quote form, by phone on +43 660 7730236, or on WhatsApp. Bookings are confirmed within 30 minutes, 24 hours a day.'],
+        //     ['q' => 'Do you provide airport transfers from Vienna International Airport (VIE)?', 'a' => 'Yes. We monitor every flight in real time, greet you inside the terminal with a name sign, and include waiting time and luggage assistance in the fixed price.'],
+        //     ['q' => 'Can I book multi-country journeys across Europe?', 'a' => 'Absolutely. Vienna is our home, but our chauffeurs regularly drive to Salzburg, Prague, Budapest, Munich, Zurich, Venice and beyond. We handle border formalities, tolls and route planning.'],
+        //     ['q' => 'What vehicles are in your fleet?', 'a' => 'Our fleet consists exclusively of black Mercedes-Benz vehicles: E-Class and S-Class sedans for 1–3 passengers, and V-Class and Vito vans for up to 8 passengers with generous luggage capacity.'],
+        //     ['q' => 'Are your drivers English-speaking?', 'a' => 'Every chauffeur speaks fluent English in addition to German. Several drivers also speak Italian, French, Russian or Arabic — just let us know when booking.'],
+        //     ['q' => 'Do you offer fixed prices?', 'a' => 'Yes. Every quote is a fully-inclusive fixed price: chauffeur, vehicle, fuel, tolls, parking, taxes, meet-and-greet and complimentary waiting time. No hidden fees.'],
+        // ];
 
         $destinationCards = [
             ['slug' => 'vienna', 'name' => 'Vienna', 'country_label' => 'Austria', 'img' => 'vienna-thumb.jpg'],
@@ -66,7 +67,8 @@ class PageController extends Controller
         return view('home', [
             'title' => 'Luxury Chauffeur Vienna & Europe | Airport Transfers | Europe Chauffeur',
             'description' => 'Premium chauffeur service in Vienna and across Europe. Mercedes-Benz fleet, English-speaking drivers, airport transfers, business travel & VIP tours. Fixed prices, 24/7.',
-            'homeFaqs' => $homeFaqs,
+            // 'homeFaqs' => $homeFaqs,
+            'homeFaqs' => config('site.faqs'),
             'destinationCards' => $destinationCards,
             'serviceImages' => $serviceImages,
             'testimonials' => $testimonials,
@@ -91,8 +93,8 @@ class PageController extends Controller
     {
         return $this->stub(
             'About Europe Chauffeur',
-            'Vienna-born. European in reach.',
-            'Europe Chauffeur is a Vienna-based luxury chauffeur company serving tourists, families, executives and corporate clients across Europe. Our experienced drivers and Mercedes-Benz fleet deliver a journey defined by safety, discretion and quiet comfort.',
+            'More Than a Ride — A Journey Crafted for You.',
+            'At Europe Chauffeur, we believe every journey should be comfortable, reliable, and memorable. We provide premium chauffeur services across Europe with professional drivers, luxury vehicles, and personalized travel experiences. Whether it’s an airport transfer, business trip, sightseeing tour, or long-distance travel, we’re committed to making every journey safe, smooth, and stress-free',
             'About Europe Chauffeur — Luxury Chauffeur Service in Vienna'
         );
     }
@@ -117,15 +119,25 @@ class PageController extends Controller
         );
     }
 
+    // public function faq(): View
+    // {
+    //     return $this->stub(
+    //         'Frequently Asked',
+    //         'Answers, before you ask.',
+    //         'A comprehensive knowledge base covering bookings, pricing, vehicles, coverage, corporate accounts and more.',
+    //         'Chauffeur FAQ — Vienna & Europe | Europe Chauffeur'
+    //     );
+    // }
     public function faq(): View
-    {
-        return $this->stub(
-            'Frequently Asked',
-            'Answers, before you ask.',
-            'A comprehensive knowledge base covering bookings, pricing, vehicles, coverage, corporate accounts and more.',
-            'Chauffeur FAQ — Vienna & Europe | Europe Chauffeur'
-        );
-    }
+{
+    return view('faq', [
+        'eyebrow' => 'Frequently Asked',
+        'pageTitle' => 'Answers, before you ask.',
+        'intro' => 'A comprehensive knowledge base covering bookings, pricing, vehicles, coverage, corporate accounts and more.',
+        'title' => 'Chauffeur FAQ — Vienna & Europe | Europe Chauffeur',
+        'faqs' => config('site.faqs', []),
+    ]);
+}
 
     public function privacy(): View
     {
@@ -193,16 +205,25 @@ class PageController extends Controller
 
     public function servicesShow(string $service): View
     {
-        $services = collect(config('site.services'));
-        $current  = $services->firstWhere('slug', $service);
+        $services = config('site.services', []);
+        $currentService = null;
+        $relatedServices = [];
 
-        abort_if(!$current, 404);
+        foreach ($services as $serviceItem) {
+            if ($serviceItem['slug'] === $service) {
+                $currentService = $serviceItem;
+            } else {
+                $relatedServices[] = $serviceItem;
+            }
+        }
+
+        abort_if($currentService === null, 404);
 
         return view('services.show', [
-            'title'       => $current['title'] . ' | Europe Chauffeur',
-            'description' => $current['short'],
-            'service'     => $current,
-            'services'    => $services->all(),
+            'title' => $currentService['title'] . ' | Europe Chauffeur',
+            'description' => $currentService['description'],
+            'service' => $currentService,
+            'relatedServices' => $relatedServices,
         ]);
     }
 

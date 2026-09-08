@@ -3,7 +3,7 @@
         <div class="container-lux detail-grid" style="grid-template-columns: 1fr 1.2fr;">
             <div>
                 <x-section-header eyebrow="Get in Touch" title="Speak with our concierge."
-                    intro="Available 24 hours a day. Prefer to book instantly? Use the reservation form beside — we respond within 30 minutes." />
+                    intro="Have questions or ready to book? We’re here to help. Reach out to Europe Chauffeur and we’ll get back to you as soon as possible" />
 
                 <ul class="contact-list">
                     <li>
@@ -25,7 +25,7 @@
                         <span class="icon-box"><x-icon name="mappin" class="icon sm text-gold-deep" /></span>
                         <div>
                             <div class="eyebrow">Office</div>
-                            <p style="margin-top:.5rem;">Vienna, Austria</p>
+                            <p style="margin-top:.5rem;">Getreideweg 6<br />2301 Gr Enzersdorf<br/>Austria</p>
                             <p style="margin-top:.25rem;font-size:.75rem;color:var(--muted-foreground);">Serving all of Europe</p>
                         </div>
                     </li>
