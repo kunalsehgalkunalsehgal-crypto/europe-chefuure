@@ -1,27 +1,41 @@
-<x-layouts.app :title="$title">
+<x-layouts.app :title="$title" :description="$intro">
 
-    <section class="section">
-        <div class="container-lux">
+    <div class="page-hero">
+        <div class="container-lux max-w-3xl">
 
-            <x-section-header
-                :eyebrow="$eyebrow"
-                :title="$pageTitle"
-                :intro="$intro"
-            />
+            <p class="eyebrow">
+                {{ $eyebrow }}
+            </p>
 
-            <div class="faq-list">
+            <h1>
+                {{ $pageTitle }}
+            </h1>
+
+            <div class="gold-rule" style="margin-top:1.5rem;"></div>
+
+            <p style="margin-top:2rem;font-size:1.05rem;line-height:1.7;color:var(--muted-foreground);">
+                {{ $intro }}
+            </p>
+
+
+            <div class="faq-list" style="margin-top:2.5rem;">
 
                 @foreach($faqs as $f)
 
                     <details class="faq-item">
+
                         <summary>
-                            <span class="q">{{ $f['q'] }}</span>
+                            <span class="q">
+                                {{ $f['q'] }}
+                            </span>
+
                             <span class="plus">+</span>
                         </summary>
 
                         <p class="answer">
                             {{ $f['a'] }}
                         </p>
+
                     </details>
 
                 @endforeach
@@ -29,6 +43,6 @@
             </div>
 
         </div>
-    </section>
+    </div>
 
 </x-layouts.app>

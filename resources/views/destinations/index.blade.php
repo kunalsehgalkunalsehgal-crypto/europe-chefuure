@@ -1,8 +1,8 @@
 <x-layouts.app :title="$title" :description="$description">
     <div class="page-hero">
         <div class="container-lux">
-            <x-section-header eyebrow="Destinations" title="From Vienna to every European capital."
-                intro="Cross-border chauffeur transfers to eight countries — handled by drivers who know the routes, the tolls, and the shortcuts." />
+            <x-section-header eyebrow="Destinations" title="Your destination is our priority. Your comfort is our commitment"
+                intro="From the historic streets of Vienna to Europe’s most breathtaking cities and landmarks, our luxury chauffeur service ensures every journey is comfortable, elegant, and stress-free." />
 
             <div class="card-grid cols-4">
                 @foreach($destinations as $d)

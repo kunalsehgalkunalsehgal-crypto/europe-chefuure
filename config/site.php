@@ -177,34 +177,35 @@ return [
         'mercedes-vito' => ['Comfortable 8-seat cabin', 'Extra luggage room', 'Ideal for families & groups', 'Roof rails available', 'Child seats on request'],
     ],
 
+    // 
     'destinations' => [
-        ['slug' => 'austria', 'name' => 'Austria', 'type' => 'country', 'country' => 'Austria', 'cities' => ['vienna', 'salzburg', 'hallstatt']],
-        ['slug' => 'germany', 'name' => 'Germany', 'type' => 'country', 'country' => 'Germany', 'cities' => ['munich', 'berlin']],
-        ['slug' => 'switzerland', 'name' => 'Switzerland', 'type' => 'country', 'country' => 'Switzerland', 'cities' => ['zurich', 'lucerne']],
-        ['slug' => 'italy', 'name' => 'Italy', 'type' => 'country', 'country' => 'Italy', 'cities' => ['venice', 'milan', 'rome']],
-        ['slug' => 'czech-republic', 'name' => 'Czech Republic', 'type' => 'country', 'country' => 'Czech Republic', 'cities' => ['prague']],
-        ['slug' => 'hungary', 'name' => 'Hungary', 'type' => 'country', 'country' => 'Hungary', 'cities' => ['budapest']],
-        ['slug' => 'croatia', 'name' => 'Croatia', 'type' => 'country', 'country' => 'Croatia', 'cities' => []],
-        ['slug' => 'slovenia', 'name' => 'Slovenia', 'type' => 'country', 'country' => 'Slovenia', 'cities' => []],
-        ['slug' => 'vienna', 'name' => 'Vienna', 'type' => 'city', 'country' => 'Austria', 'cities' => []],
-        ['slug' => 'salzburg', 'name' => 'Salzburg', 'type' => 'city', 'country' => 'Austria', 'cities' => []],
-        ['slug' => 'prague', 'name' => 'Prague', 'type' => 'city', 'country' => 'Czech Republic', 'cities' => []],
-        ['slug' => 'budapest', 'name' => 'Budapest', 'type' => 'city', 'country' => 'Hungary', 'cities' => []],
-        ['slug' => 'munich', 'name' => 'Munich', 'type' => 'city', 'country' => 'Germany', 'cities' => []],
-        ['slug' => 'zurich', 'name' => 'Zurich', 'type' => 'city', 'country' => 'Switzerland', 'cities' => []],
-        ['slug' => 'venice', 'name' => 'Venice', 'type' => 'city', 'country' => 'Italy', 'cities' => []],
-    ],
+    ['slug' => 'hallstatt', 'name' => 'Hallstatt', 'type' => 'city', 'country' => 'Austria', 'cities' => []],
 
-    'destination_covers' => [
-        'austria' => 'vienna-thumb.jpg',
-        'vienna' => 'vienna-thumb.jpg',
-        'salzburg' => 'salzburg-thumb.jpg',
-        'czech-republic' => 'prague-thumb.jpg',
-        'prague' => 'prague-thumb.jpg',
-        'hungary' => 'budapest-thumb.jpg',
-        'budapest' => 'budapest-thumb.jpg',
-        'germany' => 'salzburg-thumb.jpg',
-    ],
+    ['slug' => 'rome', 'name' => 'Rome', 'type' => 'city', 'country' => 'Italy', 'cities' => []],
+
+    ['slug' => 'vienna', 'name' => 'Vienna', 'type' => 'city', 'country' => 'Austria', 'cities' => []],
+
+    ['slug' => 'budapest', 'name' => 'Budapest', 'type' => 'city', 'country' => 'Hungary', 'cities' => []],
+
+    ['slug' => 'salzburg', 'name' => 'Salzburg', 'type' => 'city', 'country' => 'Austria', 'cities' => []],
+
+    ['slug' => 'venice', 'name' => 'Venice', 'type' => 'city', 'country' => 'Italy', 'cities' => []],
+
+    ['slug' => 'prague', 'name' => 'Prague', 'type' => 'city', 'country' => 'Czech Republic', 'cities' => []],
+
+    ['slug' => 'munich', 'name' => 'Munich', 'type' => 'city', 'country' => 'Germany', 'cities' => []],
+],
+
+'destination_covers' => [
+    'hallstatt' => 'hallsate1.webp',
+    'rome' => 'rome.webp',
+    'vienna' => 'vienna.webp',
+    'budapest' => 'budapest.webp',
+    'salzburg' => 'salzburg.webp',
+    'venice' => 'venice.webp',
+    'prague' => 'prague.webp',
+    'munich' => 'munich.webp',
+],
 
     'fleet_images' => [
         'mercedes-e-class' => 'e-class.jpg',

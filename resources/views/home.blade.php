@@ -135,8 +135,9 @@
     <section class="section">
         <div class="container-lux">
             <div class="section-top section-new">
-                <x-section-header eyebrow="Destinations" title="From Vienna to every European capital."
-                    intro="Cross-border chauffeur transfers to Salzburg, Prague, Budapest, Munich, Zurich, Venice and beyond — handled by drivers who know the routes, the tolls and the shortcuts." />
+                <x-section-header eyebrow="Destinations" title="Your destination is our priority. Your comfort is our commitment
+"
+                    intro="From the historic streets of Vienna to Europe’s most breathtaking cities and landmarks, our luxury chauffeur service ensures every journey is comfortable, elegant, and stress-free." />
                 {{-- <div class="flex justify-center mt-3">
                     <a href="{{ url('/destinations') }}" class="btn-ghost-dark">All destinations <x-icon name="arrow-right" class="icon sm" /></a>
                 </div> --}}

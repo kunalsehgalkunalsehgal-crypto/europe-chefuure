@@ -21,10 +21,10 @@ class PageController extends Controller
         // ];
 
         $destinationCards = [
-            ['slug' => 'vienna', 'name' => 'Vienna', 'country_label' => 'Austria', 'img' => 'vienna-thumb.jpg'],
-            ['slug' => 'salzburg', 'name' => 'Salzburg', 'country_label' => 'Austria', 'img' => 'salzburg-thumb.jpg'],
-            ['slug' => 'prague', 'name' => 'Prague', 'country_label' => 'Czech Republic', 'img' => 'prague-thumb.jpg'],
-            ['slug' => 'budapest', 'name' => 'Budapest', 'country_label' => 'Hungary', 'img' => 'budapest-thumb.jpg'],
+            ['slug' => 'vienna', 'name' => 'Vienna', 'country_label' => 'Austria', 'img' => 'Vienna.webp'],
+            ['slug' => 'salzburg', 'name' => 'Salzburg', 'country_label' => 'Austria', 'img' => 'salzburg.webp'],
+            ['slug' => 'prague', 'name' => 'Prague', 'country_label' => 'Czech Republic', 'img' => 'prague.webp'],
+            ['slug' => 'budapest', 'name' => 'Budapest', 'country_label' => 'Hungary', 'img' => 'budapest.webp'],
         ];
 
         $serviceImages = [
@@ -268,11 +268,10 @@ class PageController extends Controller
     {
         $destinations = collect(config('site.destinations'));
         $current      = $destinations->firstWhere('slug', $destination);
-
         abort_if(!$current, 404);
 
         $covers = config('site.destination_covers');
-
+$others = $destinations->where('slug', '!=', $destination) ->take(6) ->values() ->all();
         return view('destinations.show', [
             'title'        => 'Chauffeur to ' . $current['name'] . ' | Europe Chauffeur',
             'description'  => 'Luxury chauffeur service to ' . $current['name'] . '. Fixed prices, professional drivers, Mercedes-Benz fleet.',
@@ -280,6 +279,7 @@ class PageController extends Controller
             'image'        => $covers[$destination] ?? 'vienna-thumb.jpg',
             'covers'       => $covers,
             'fleet'        => config('site.fleet'),
+            'others' => $others,
         ]);
     }
 }
