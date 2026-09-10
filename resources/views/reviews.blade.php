@@ -1,7 +1,7 @@
 <x-layouts.app :title="$title" :description="$description">
 
     {{-- HERO --}}
-    <section class="image-hero" style="min-height:560px;">
+    <section class="image-hero" style="min-height:620px;">
         <img
             src="{{ asset('images/home/hero-vienna.jpg') }}"
             alt="Europe Chauffeur client reviews and luxury chauffeur service"

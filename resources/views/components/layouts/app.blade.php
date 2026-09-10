@@ -17,6 +17,7 @@
     {{-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> --}}
 
 <link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/responsive-fix.css">
     @if(isset($schema))
         <script type="application/ld+json">{!! json_encode($schema) !!}</script>
     @endif

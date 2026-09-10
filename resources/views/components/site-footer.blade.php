@@ -2,7 +2,7 @@
     <div class="container-lux footer-inner">
         <div>
             <a href="{{ url('/') }}" class="footer-logo">
-                <img src="{{ asset('images/logo.png') }}" alt="{{ config('site.name') }}">
+                <img src="{{ asset('images/abcd.png') }}" alt="{{ config('site.name') }}">
             </a>
             <p class="footer-about">
                 Premium chauffeur-driven transportation across Europe. Based in Vienna,
