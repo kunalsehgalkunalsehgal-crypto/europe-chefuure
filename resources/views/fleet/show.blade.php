@@ -42,7 +42,13 @@
                         <div class="row"><dt>Luggage</dt><dd><x-icon name="badge-check" class="icon sm text-gold-deep" /> {{ $v['luggage'] }} bags</dd></div>
                         <div class="row"><dt>Brand</dt><dd>Mercedes-Benz</dd></div>
                     </dl>
-                    <a href="{{ url('/#book') }}" class="btn-gold btn-block mt-8" style="display:flex;">Book this vehicle <x-icon name="arrow-right" class="icon sm" /></a>
+                    {{-- <a href="{{ url('/#book') }}" class="btn-gold btn-block mt-8" style="display:flex;">Book this vehicle <x-icon name="arrow-right" class="icon sm" /></a> --}}
+                    <a href="{{ route('contact', ['vehicle' => $v['slug']]) }}"
+   class="btn-gold btn-block mt-8"
+   style="display:flex;">
+    Book this vehicle
+    <x-icon name="arrow-right" class="icon sm" />
+</a>
                     <a href="{{ config('site.phoneHref') }}" class="btn-ghost-dark btn-block" style="display:flex;margin-top:.75rem;">{{ config('site.phone') }}</a>
                 </aside>
             </div>

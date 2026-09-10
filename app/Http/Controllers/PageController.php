@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Mail;
 
 class PageController extends Controller
 {
@@ -169,30 +170,88 @@ class PageController extends Controller
         );
     }
 
+    // public function contact(): View
+    // {
+    //     return view('contact', [
+    //         'title' => 'Contact Europe Chauffeur — Vienna, Austria',
+    //         'description' => 'Contact Europe Chauffeur in Vienna, Austria. Phone +43 660 7730236, WhatsApp, email or book online. 24/7 concierge for luxury chauffeur bookings across Europe.',
+    //         'fleet' => config('site.fleet'),
+    //     ]);
+    // }
     public function contact(): View
-    {
-        return view('contact', [
-            'title' => 'Contact Europe Chauffeur — Vienna, Austria',
-            'description' => 'Contact Europe Chauffeur in Vienna, Austria. Phone +43 660 7730236, WhatsApp, email or book online. 24/7 concierge for luxury chauffeur bookings across Europe.',
-            'fleet' => config('site.fleet'),
-        ]);
+{
+    $fleet = config('site.fleet', []);
+
+    $selectedVehicle = request()->query('vehicle');
+
+    $vehicleExists = collect($fleet)
+        ->contains('slug', $selectedVehicle);
+
+    if (!$vehicleExists) {
+        $selectedVehicle = null;
     }
 
+    return view('contact', [
+        'title' => 'Contact Europe Chauffeur — Vienna, Austria',
+        'description' => 'Contact Europe Chauffeur in Vienna, Austria. Phone +43 660 7730236, WhatsApp, email or book online. 24/7 concierge for luxury chauffeur bookings across Europe.',
+        'fleet' => $fleet,
+        'selectedVehicle' => $selectedVehicle,
+    ]);
+}
+
+    // public function storeBooking(Request $request): RedirectResponse
+    // {
+    //     $request->validate([
+    //         'pickup'   => 'required|string|max:255',
+    //         'dropoff'  => 'required|string|max:255',
+    //         'date'     => 'required|date',
+    //         'time'     => 'required|string',
+    //         'pax'      => 'required|integer|min:1|max:20',
+    //         'name'     => 'required|string|max:255',
+    //         'email'    => 'required|email|max:255',
+    //         'phone'    => 'required|string|max:50',
+    //     ]);
+
+    //     return redirect()->route('home')->with('success', 'Booking request received. We will confirm within 30 minutes.');
+    // }
     public function storeBooking(Request $request): RedirectResponse
-    {
-        $request->validate([
-            'pickup'   => 'required|string|max:255',
-            'dropoff'  => 'required|string|max:255',
-            'date'     => 'required|date',
-            'time'     => 'required|string',
-            'pax'      => 'required|integer|min:1|max:20',
-            'name'     => 'required|string|max:255',
-            'email'    => 'required|email|max:255',
-            'phone'    => 'required|string|max:50',
-        ]);
+{
+    $data = $request->validate([
+        'pickup'        => 'required|string|max:255',
+        'dropoff'       => 'required|string|max:255',
+        'pickup_date'   => 'required|date|after_or_equal:today',
+        'pickup_time'   => 'required',
+        'passengers'    => 'required|integer|min:1|max:8',
+        'vehicle'       => 'required|string|max:100',
+        'flight_number' => 'nullable|string|max:100',
+        'name'          => 'required|string|max:255',
+        'email'         => 'required|email|max:255',
+        'phone'         => 'required|string|max:50',
+        'notes'         => 'nullable|string|max:2000',
+    ]);
 
-        return redirect()->route('home')->with('success', 'Booking request received. We will confirm within 30 minutes.');
-    }
+    $fleet = collect(config('site.fleet', []));
+
+    $vehicle = $fleet->firstWhere('slug', $data['vehicle']);
+
+    $data['vehicle_name'] = $vehicle['name'] ?? $data['vehicle'];
+
+    Mail::html(
+        view('emails.booking-request', [
+            'booking' => $data,
+        ])->render(),
+        function ($message) use ($data) {
+            $message
+                ->to(config('site.email'))
+                ->replyTo($data['email'], $data['name'])
+                ->subject('New Booking Request - ' . $data['vehicle_name']);
+        }
+    );
+
+    return redirect()
+        ->to(route('contact') . '#book')
+        ->with('booking_submitted', true);
+}
 
     public function servicesIndex(): View
     {

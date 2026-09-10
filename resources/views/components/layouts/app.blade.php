@@ -14,8 +14,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="{{ $canonical ?? url()->current() }}">
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
+    {{-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> --}}
+<link rel="stylesheet" href="/css/app.css">
     @if(isset($schema))
         <script type="application/ld+json">{!! json_encode($schema) !!}</script>
     @endif

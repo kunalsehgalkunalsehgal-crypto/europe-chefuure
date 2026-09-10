@@ -32,7 +32,8 @@
                 </ul>
             </div>
 
-            <x-booking-widget variant="panel" :fleet="$fleet" />
+            {{-- <x-booking-widget variant="panel" :fleet="$fleet" /> --}}
+            <x-booking-widget  variant="panel" :fleet="$fleet" :selected-vehicle="$selectedVehicle"/>
         </div>
     </div>
 </x-layouts.app>
