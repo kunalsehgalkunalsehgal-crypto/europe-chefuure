@@ -1,0 +1,64 @@
+services:
+  - type: web
+    name: europe-chauffeur
+    runtime: docker
+    plan: starter
+    branch: main
+    autoDeploy: true
+
+    envVars:
+      - key: APP_NAME
+        value: Europe Chauffeur
+
+      - key: APP_ENV
+        value: production
+
+      - key: APP_DEBUG
+        value: "false"
+
+      - key: APP_KEY
+        sync: false
+
+      - key: APP_URL
+        sync: false
+
+      - key: LOG_CHANNEL
+        value: stderr
+
+      - key: SESSION_DRIVER
+        value: file
+
+      - key: CACHE_STORE
+        value: file
+
+      - key: QUEUE_CONNECTION
+        value: sync
+
+      - key: FILESYSTEM_DISK
+        value: local
+
+      # Mail settings: add the real values in Render Dashboard.
+      # Do not commit passwords to GitHub.
+      - key: MAIL_MAILER
+        value: smtp
+
+      - key: MAIL_SCHEME
+        value: smtp
+
+      - key: MAIL_HOST
+        sync: false
+
+      - key: MAIL_PORT
+        value: "587"
+
+      - key: MAIL_USERNAME
+        sync: false
+
+      - key: MAIL_PASSWORD
+        sync: false
+
+      - key: MAIL_FROM_ADDRESS
+        sync: false
+
+      - key: MAIL_FROM_NAME
+        value: Europe Chauffeur
