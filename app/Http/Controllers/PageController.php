@@ -90,35 +90,101 @@ class PageController extends Controller
         ]);
     }
 
+    // public function about(): View
+    // {
+    //     return $this->stub(
+    //         'About Europe Chauffeur',
+    //         'More Than a Ride — A Journey Crafted for You.',
+    //         'At Europe Chauffeur, we believe every journey should be comfortable, reliable, and memorable. We provide premium chauffeur services across Europe with professional drivers, luxury vehicles, and personalized travel experiences. Whether it’s an airport transfer, business trip, sightseeing tour, or long-distance travel, we’re committed to making every journey safe, smooth, and stress-free',
+    //         'About Europe Chauffeur — Luxury Chauffeur Service in Vienna'
+    //     );
+    // }
     public function about(): View
-    {
-        return $this->stub(
-            'About Europe Chauffeur',
-            'More Than a Ride — A Journey Crafted for You.',
-            'At Europe Chauffeur, we believe every journey should be comfortable, reliable, and memorable. We provide premium chauffeur services across Europe with professional drivers, luxury vehicles, and personalized travel experiences. Whether it’s an airport transfer, business trip, sightseeing tour, or long-distance travel, we’re committed to making every journey safe, smooth, and stress-free',
-            'About Europe Chauffeur — Luxury Chauffeur Service in Vienna'
-        );
-    }
+{
+    return view('about', [
+        'title' => 'About Europe Chauffeur | Luxury Chauffeur Service in Vienna & Europe',
+        'description' => 'Learn about Europe Chauffeur, our professional chauffeurs, luxury Mercedes-Benz fleet and premium chauffeur services from Vienna across Europe.',
+    ]);
+}
+
+    // public function blog(): View
+    // {
+    //     return $this->stub(
+    //         'The Journal',
+    //         'A luxury European travel journal.',
+    //         'Curated guides, seasonal itineraries and behind-the-wheel insights from our chauffeurs — spanning Vienna, the Alps, and every European capital we serve.',
+    //         'Luxury Travel Journal | Europe Chauffeur Blog'
+    //     );
+    // }
 
     public function blog(): View
-    {
-        return $this->stub(
-            'The Journal',
-            'A luxury European travel journal.',
-            'Curated guides, seasonal itineraries and behind-the-wheel insights from our chauffeurs — spanning Vienna, the Alps, and every European capital we serve.',
-            'Luxury Travel Journal | Europe Chauffeur Blog'
-        );
-    }
+{
+    $posts = config('blog.posts', []);
 
+    return view('blog.index', [
+        'title' => 'Luxury Travel Journal | Europe Chauffeur Blog',
+        'description' => 'Travel guides, chauffeur tips and destination ideas for Vienna and Europe.',
+        'featured' => $posts[0] ?? null,
+        'posts' => $posts,
+    ]);
+}
+    public function blogShow(string $slug): View
+{
+    $posts = collect(config('blog.posts', []));
+
+    $post = $posts->firstWhere('slug', $slug);
+
+    abort_if(!$post, 404);
+
+    $relatedPosts = $posts
+        ->where('slug', '!=', $slug)
+        ->take(3)
+        ->values()
+        ->all();
+
+    return view('blog.show', [
+        'title' => $post['title'] . ' | Europe Chauffeur',
+        'description' => $post['description'],
+        'post' => $post,
+        'relatedPosts' => $relatedPosts,
+    ]);
+}
+
+    // public function reviews(): View
+    // {
+    //     return $this->stub(
+    //         'Client Reviews',
+    //         'Trusted by discerning travellers across Europe.',
+    //         'A curated collection of verified reviews from executives, VIP guests and families who have travelled with Europe Chauffeur.',
+    //         'Reviews & Testimonials | Europe Chauffeur'
+    //     );
+    // }
     public function reviews(): View
-    {
-        return $this->stub(
-            'Client Reviews',
-            'Trusted by discerning travellers across Europe.',
-            'A curated collection of verified reviews from executives, VIP guests and families who have travelled with Europe Chauffeur.',
-            'Reviews & Testimonials | Europe Chauffeur'
-        );
-    }
+{
+    $reviews = [
+        [
+            'quote' => 'Flawless from booking to drop-off. Our chauffeur greeted us with our name inside the terminal and the S-Class was pristine. Europe Chauffeur is now our standard for Vienna travel.',
+            'name' => 'Alexander M.',
+            'role' => 'Managing Director, London',
+        ],
+        [
+            'quote' => 'We booked a five-day itinerary from Vienna to Salzburg, Hallstatt and Prague. Every detail was thought of — from bottled water to route timing around openings. Truly first-class.',
+            'name' => 'Priya K.',
+            'role' => 'Private Client, Dubai',
+        ],
+        [
+            'quote' => 'For our board meeting in Munich we needed absolute reliability. Cars arrived early, drivers were impeccable, invoicing was clear. Highly recommended for corporate travel.',
+            'name' => 'Michael R.',
+            'role' => 'COO, Zurich',
+        ],
+    ];
+
+    return view('reviews', [
+        'title' => 'Client Reviews & Testimonials | Europe Chauffeur',
+        'description' => 'Read client experiences with Europe Chauffeur for luxury airport transfers, business travel, private tours and chauffeur journeys across Europe.',
+        'reviews' => $reviews,
+    ]);
+}
 
     // public function faq(): View
     // {

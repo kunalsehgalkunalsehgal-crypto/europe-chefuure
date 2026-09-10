@@ -1558,3 +1558,187 @@ p {
 .divide-y > * + * {
     border-top: 1px solid var(--border);
 }
+
+
+
+
+
+
+/* =========================================================
+   REVIEWS CAROUSEL
+   ========================================================= */
+
+.reviews-carousel {
+    position: relative;
+    margin-top: 3.5rem;
+    padding: 0 4rem 2.5rem;
+}
+
+.reviews-viewport {
+    width: 100%;
+    overflow: hidden;
+}
+
+.reviews-track {
+    display: flex;
+    gap: 1.5rem;
+    align-items: stretch;
+    transition: transform 0.55s ease;
+    will-change: transform;
+}
+
+.review-slide {
+    min-width: calc((100% - 1.5rem) / 2);
+    flex: 0 0 calc((100% - 1.5rem) / 2);
+}
+
+.review-slide .testimonial {
+    height: 100%;
+    margin: 0;
+}
+
+.review-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-70%);
+    z-index: 5;
+
+    width: 46px;
+    height: 46px;
+
+    display: grid;
+    place-items: center;
+
+    padding: 0;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+
+    background: var(--obsidian);
+    color: var(--gold);
+
+    font-family: Georgia, serif;
+    font-size: 2rem;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        opacity 0.25s ease;
+}
+
+.review-arrow:hover {
+    background: var(--gold);
+    color: var(--obsidian);
+}
+
+.review-arrow:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+.review-arrow:disabled:hover {
+    background: var(--obsidian);
+    color: var(--gold);
+}
+
+.review-prev {
+    left: 0;
+}
+
+.review-next {
+    right: 0;
+}
+
+.review-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.65rem;
+    margin-top: 1.75rem;
+}
+
+.review-dot {
+    width: 8px;
+    height: 8px;
+
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+
+    background: #d8d4cb;
+
+    cursor: pointer;
+    transition:
+        width 0.25s ease,
+        border-radius 0.25s ease,
+        background 0.25s ease;
+}
+
+.review-dot.active {
+    width: 26px;
+    border-radius: 20px;
+    background: var(--gold);
+}
+
+
+/* Tablet */
+@media (max-width: 991px) {
+
+    .reviews-carousel {
+        padding-inline: 3.5rem;
+    }
+
+}
+
+
+/* Mobile */
+@media (max-width: 767px) {
+
+    .reviews-carousel {
+        margin-top: 2.5rem;
+        padding: 0 2.75rem 2rem;
+    }
+
+    .reviews-track {
+        gap: 1rem;
+    }
+
+    .review-slide {
+        min-width: 100%;
+        flex-basis: 100%;
+    }
+
+    .review-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 1.65rem;
+    }
+
+    .review-prev {
+        left: 0;
+    }
+
+    .review-next {
+        right: 0;
+    }
+
+}
+
+
+/* Very small mobile */
+@media (max-width: 420px) {
+
+    .reviews-carousel {
+        padding-inline: 2.35rem;
+    }
+
+    .review-arrow {
+        width: 34px;
+        height: 34px;
+        font-size: 1.5rem;
+    }
+
+}

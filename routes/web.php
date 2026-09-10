@@ -5,8 +5,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 
-Route::get('/about', [PageController::class, 'about'])->name('about');
+// Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/blog', [PageController::class, 'blog'])->name('blog');
+Route::get('/blog/{slug}', [PageController::class, 'blogShow'])
+    ->name('blog.show');
 Route::get('/reviews', [PageController::class, 'reviews'])->name('reviews');
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');
 Route::get('/privacy', [PageController::class, 'privacy'])->name('privacy');
@@ -23,3 +25,4 @@ Route::get('/fleet/{vehicle}', [PageController::class, 'fleetShow'])->name('flee
 
 Route::get('/destinations', [PageController::class, 'destinationsIndex'])->name('destinations.index');
 Route::get('/destinations/{destination}', [PageController::class, 'destinationsShow'])->name('destinations.show');
+Route::get('/about', [PageController::class, 'about'])->name('about');
