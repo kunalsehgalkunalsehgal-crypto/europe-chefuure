@@ -233,7 +233,9 @@ class PageController extends Controller
             'title'       => 'Our Fleet | Europe Chauffeur',
             'description' => 'Discover our exclusive Mercedes-Benz fleet — E-Class, S-Class, V-Class and Vito — available for luxury chauffeur hire across Europe.',
             'fleet'       => config('site.fleet'),
-            'fleetImages' => config('site.fleet_images'),
+            // 'fleetImages' => config('site.fleet_images'),
+                    'images' => config('site.fleet_images'),
+
         ]);
     }
 
@@ -248,8 +250,12 @@ class PageController extends Controller
             'title'        => $current['name'] . ' | Europe Chauffeur',
             'description'  => 'Hire a ' . $current['name'] . ' with a professional chauffeur across Europe.',
             'vehicle'      => $current,
+                    'v' => $current,
+
             'features'     => config('site.fleet_features.' . $vehicle, []),
-            'fleetImages'  => config('site.fleet_images'),
+            // 'fleetImages'  => config('site.fleet_images'),
+                    'image' => $images[$vehicle] ?? 'e-class.jpg',
+
             'fleet'        => $fleet->all(),
         ]);
     }

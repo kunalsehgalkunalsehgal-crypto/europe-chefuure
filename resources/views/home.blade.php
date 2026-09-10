@@ -14,8 +14,8 @@
                 <div class="hero-text">
                     <h1>
                         Luxury Chauffeur
-                        <span class="italic text-gold" style="display:block;">Services Across Europe & Airport Transfers in Vienna</span>
-                        <span style="display:block;">&amp; in Vienna.</span>
+                        <span class="italic text-gold" style="display:block;">Services Across Europe & Airport Transfers</span>
+                        <span style="display:block;">in Vienna.</span>
                         {{-- <span class="italic text-gold" style="display:block;">Services in Vienna</span>
                         <span style="display:block;">&amp; Across Europe.</span> --}}
                     </h1>
