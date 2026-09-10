@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>New Booking Request | Europe Chauffeur</title>
+    <title>Booking Request Received | Europe Chauffeur</title>
 </head>
 
 <body style="
@@ -29,6 +29,7 @@
     <tr>
         <td align="center">
 
+
             <table
                 width="620"
                 cellpadding="0"
@@ -41,6 +42,7 @@
                     border:1px solid #e6e3da;
                 "
             >
+
 
                 {{-- HEADER --}}
                 <tr>
@@ -61,7 +63,7 @@
                                 margin-bottom:13px;
                             "
                         >
-                            New Booking Request
+                            Luxury Chauffeur Services
                         </div>
 
                         <div
@@ -89,7 +91,7 @@
                 </tr>
 
 
-                {{-- INTRO --}}
+                {{-- MAIN CONTENT --}}
                 <tr>
                     <td style="padding:42px 42px 20px;">
 
@@ -103,8 +105,9 @@
                                 margin-bottom:12px;
                             "
                         >
-                            Reservation Enquiry
+                            Booking Request Received
                         </div>
+
 
                         <h1
                             style="
@@ -116,8 +119,20 @@
                                 color:#17181b;
                             "
                         >
-                            A new journey request has arrived.
+                            Thank you, {{ $booking['name'] }}.
                         </h1>
+
+
+                        <p
+                            style="
+                                margin:0 0 14px;
+                                font-size:15px;
+                                line-height:1.8;
+                                color:#5f5d58;
+                            "
+                        >
+                            We have received your chauffeur booking request successfully.
+                        </p>
 
                         <p
                             style="
@@ -127,15 +142,15 @@
                                 color:#5f5d58;
                             "
                         >
-                            A customer has submitted a new chauffeur booking request.
-                            Their full contact and journey details are below.
+                            Our reservation team will review your journey details and
+                            contact you shortly to confirm your booking.
                         </p>
 
                     </td>
                 </tr>
 
 
-                {{-- SEPARATOR --}}
+                {{-- GOLD SEPARATOR --}}
                 <tr>
                     <td style="padding:10px 42px 0;">
                         <div
@@ -149,7 +164,7 @@
                 </tr>
 
 
-                {{-- CUSTOMER DETAILS --}}
+                {{-- JOURNEY TITLE --}}
                 <tr>
                     <td style="padding:32px 42px 15px;">
 
@@ -163,160 +178,7 @@
                                 margin-bottom:8px;
                             "
                         >
-                            Customer
-                        </div>
-
-                        <h2
-                            style="
-                                margin:0;
-                                font-family:Georgia, 'Times New Roman', serif;
-                                font-weight:normal;
-                                font-size:26px;
-                                color:#17181b;
-                            "
-                        >
-                            Contact Details
-                        </h2>
-
-                    </td>
-                </tr>
-
-
-                <tr>
-                    <td style="padding:5px 42px 30px;">
-
-                        <table
-                            width="100%"
-                            cellpadding="0"
-                            cellspacing="0"
-                            border="0"
-                            style="
-                                background:#ffffff;
-                                border:1px solid #e6e3da;
-                            "
-                        >
-
-                            {{-- NAME --}}
-                            <tr>
-                                <td
-                                    style="
-                                        padding:20px 22px;
-                                        border-bottom:1px solid #e6e3da;
-                                    "
-                                >
-                                    <div
-                                        style="
-                                            font-size:10px;
-                                            letter-spacing:2px;
-                                            color:#a67c3d;
-                                            text-transform:uppercase;
-                                            margin-bottom:7px;
-                                        "
-                                    >
-                                        Full Name
-                                    </div>
-
-                                    <div
-                                        style="
-                                            font-size:15px;
-                                            color:#17181b;
-                                        "
-                                    >
-                                        {{ $booking['name'] }}
-                                    </div>
-                                </td>
-                            </tr>
-
-
-                            {{-- EMAIL --}}
-                            <tr>
-                                <td
-                                    style="
-                                        padding:20px 22px;
-                                        border-bottom:1px solid #e6e3da;
-                                    "
-                                >
-                                    <div
-                                        style="
-                                            font-size:10px;
-                                            letter-spacing:2px;
-                                            color:#a67c3d;
-                                            text-transform:uppercase;
-                                            margin-bottom:7px;
-                                        "
-                                    >
-                                        Email
-                                    </div>
-
-                                    <div
-                                        style="
-                                            font-size:15px;
-                                            color:#17181b;
-                                        "
-                                    >
-                                        <a
-                                            href="mailto:{{ $booking['email'] }}"
-                                            style="
-                                                color:#17181b;
-                                                text-decoration:none;
-                                            "
-                                        >
-                                            {{ $booking['email'] }}
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-
-
-                            {{-- PHONE --}}
-                            <tr>
-                                <td style="padding:20px 22px;">
-
-                                    <div
-                                        style="
-                                            font-size:10px;
-                                            letter-spacing:2px;
-                                            color:#a67c3d;
-                                            text-transform:uppercase;
-                                            margin-bottom:7px;
-                                        "
-                                    >
-                                        Phone Number
-                                    </div>
-
-                                    <div
-                                        style="
-                                            font-size:15px;
-                                            color:#17181b;
-                                        "
-                                    >
-                                        {{ $booking['phone'] }}
-                                    </div>
-
-                                </td>
-                            </tr>
-
-                        </table>
-
-                    </td>
-                </tr>
-
-
-                {{-- JOURNEY TITLE --}}
-                <tr>
-                    <td style="padding:5px 42px 15px;">
-
-                        <div
-                            style="
-                                font-size:10px;
-                                letter-spacing:3px;
-                                text-transform:uppercase;
-                                color:#a67c3d;
-                                font-weight:bold;
-                                margin-bottom:8px;
-                            "
-                        >
-                            Journey
+                            Your Journey
                         </div>
 
                         <h2
@@ -335,7 +197,7 @@
                 </tr>
 
 
-                {{-- JOURNEY DETAILS --}}
+                {{-- DETAILS CARD --}}
                 <tr>
                     <td style="padding:5px 42px 32px;">
 
@@ -350,6 +212,7 @@
                             "
                         >
 
+
                             {{-- PICKUP --}}
                             <tr>
                                 <td
@@ -358,7 +221,6 @@
                                         border-bottom:1px solid #e6e3da;
                                     "
                                 >
-
                                     <div
                                         style="
                                             font-size:10px;
@@ -371,10 +233,15 @@
                                         Pickup Location
                                     </div>
 
-                                    <div style="font-size:15px;color:#17181b;">
+                                    <div
+                                        style="
+                                            font-size:15px;
+                                            color:#17181b;
+                                            line-height:1.5;
+                                        "
+                                    >
                                         {{ $booking['pickup'] }}
                                     </div>
-
                                 </td>
                             </tr>
 
@@ -387,7 +254,6 @@
                                         border-bottom:1px solid #e6e3da;
                                     "
                                 >
-
                                     <div
                                         style="
                                             font-size:10px;
@@ -400,16 +266,21 @@
                                         Drop-off Location
                                     </div>
 
-                                    <div style="font-size:15px;color:#17181b;">
+                                    <div
+                                        style="
+                                            font-size:15px;
+                                            color:#17181b;
+                                        "
+                                    >
                                         {{ $booking['dropoff'] }}
                                     </div>
-
                                 </td>
                             </tr>
 
 
-                            {{-- DATE TIME --}}
+                            {{-- DATE / TIME --}}
                             <tr>
+
                                 <td style="padding:0;">
 
                                     <table
@@ -429,6 +300,7 @@
                                                     border-bottom:1px solid #e6e3da;
                                                 "
                                             >
+
                                                 <div
                                                     style="
                                                         font-size:10px;
@@ -441,9 +313,15 @@
                                                     Pickup Date
                                                 </div>
 
-                                                <div style="font-size:15px;color:#17181b;">
+                                                <div
+                                                    style="
+                                                        font-size:15px;
+                                                        color:#17181b;
+                                                    "
+                                                >
                                                     {{ $booking['pickup_date'] }}
                                                 </div>
+
                                             </td>
 
 
@@ -455,6 +333,7 @@
                                                     border-bottom:1px solid #e6e3da;
                                                 "
                                             >
+
                                                 <div
                                                     style="
                                                         font-size:10px;
@@ -467,9 +346,15 @@
                                                     Pickup Time
                                                 </div>
 
-                                                <div style="font-size:15px;color:#17181b;">
+                                                <div
+                                                    style="
+                                                        font-size:15px;
+                                                        color:#17181b;
+                                                    "
+                                                >
                                                     {{ $booking['pickup_time'] }}
                                                 </div>
+
                                             </td>
 
                                         </tr>
@@ -479,8 +364,9 @@
                             </tr>
 
 
-                            {{-- PASSENGERS VEHICLE --}}
+                            {{-- PASSENGERS / VEHICLE --}}
                             <tr>
+
                                 <td style="padding:0;">
 
                                     <table
@@ -499,6 +385,7 @@
                                                     border-right:1px solid #e6e3da;
                                                 "
                                             >
+
                                                 <div
                                                     style="
                                                         font-size:10px;
@@ -511,17 +398,26 @@
                                                     Passengers
                                                 </div>
 
-                                                <div style="font-size:15px;color:#17181b;">
+                                                <div
+                                                    style="
+                                                        font-size:15px;
+                                                        color:#17181b;
+                                                    "
+                                                >
                                                     {{ $booking['passengers'] }}
                                                 </div>
+
                                             </td>
 
 
                                             <td
                                                 width="50%"
                                                 valign="top"
-                                                style="padding:20px 22px;"
+                                                style="
+                                                    padding:20px 22px;
+                                                "
                                             >
+
                                                 <div
                                                     style="
                                                         font-size:10px;
@@ -534,28 +430,34 @@
                                                     Vehicle
                                                 </div>
 
-                                                <div style="font-size:15px;color:#17181b;">
+                                                <div
+                                                    style="
+                                                        font-size:15px;
+                                                        color:#17181b;
+                                                    "
+                                                >
                                                     {{ $booking['vehicle_name'] }}
                                                 </div>
+
                                             </td>
 
                                         </tr>
                                     </table>
 
                                 </td>
+
                             </tr>
 
                         </table>
 
 
-                        {{-- FLIGHT --}}
+                        {{-- OPTIONAL FLIGHT --}}
                         @if(!empty($booking['flight_number']))
 
                             <table
                                 width="100%"
                                 cellpadding="0"
                                 cellspacing="0"
-                                border="0"
                                 style="
                                     margin-top:15px;
                                     background:#ffffff;
@@ -588,14 +490,13 @@
                         @endif
 
 
-                        {{-- NOTES --}}
+                        {{-- OPTIONAL NOTES --}}
                         @if(!empty($booking['notes']))
 
                             <table
                                 width="100%"
                                 cellpadding="0"
                                 cellspacing="0"
-                                border="0"
                                 style="
                                     margin-top:15px;
                                     background:#ffffff;
@@ -637,7 +538,7 @@
                 </tr>
 
 
-                {{-- ACTION NOTE --}}
+                {{-- NOTE --}}
                 <tr>
                     <td style="padding:0 42px 40px;">
 
@@ -651,9 +552,9 @@
                                 color:#68655f;
                             "
                         >
-                            You can reply directly to this email.
-                            Your reply will be sent to
-                            <strong>{{ $booking['email'] }}</strong>.
+                            Your booking request has been received but is not
+                            confirmed yet. Our reservation team will contact you
+                            shortly with final confirmation.
                         </div>
 
                     </td>
@@ -713,9 +614,11 @@
                     </td>
                 </tr>
 
+
             </table>
 
 
+            {{-- BOTTOM TEXT --}}
             <div
                 style="
                     max-width:620px;
@@ -726,7 +629,8 @@
                     text-align:center;
                 "
             >
-                New reservation request submitted through Europe Chauffeur.
+                This email was sent because a booking request was made
+                through Europe Chauffeur.
             </div>
 
         </td>

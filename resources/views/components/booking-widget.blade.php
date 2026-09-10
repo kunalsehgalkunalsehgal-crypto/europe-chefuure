@@ -76,6 +76,29 @@
 <div id="book" class="booking-widget {{ $variant === 'overlay' ? 'overlay' : 'panel' }}">
 
     <div class="bw-head">
+        @if(session('booking_error'))
+    <div style="
+        margin-bottom:15px;
+        padding:12px;
+        background:#fee2e2;
+        color:#991b1b;
+        border-radius:6px;
+    ">
+        {{ session('booking_error') }}
+    </div>
+@endif
+
+@if($errors->any())
+    <div style="
+        margin-bottom:15px;
+        padding:12px;
+        background:#fee2e2;
+        color:#991b1b;
+        border-radius:6px;
+    ">
+        Please check the form and try again.
+    </div>
+@endif
         <div>
             <p class="eyebrow">Reserve your journey</p>
             <h3>Instant Quote</h3>

@@ -214,13 +214,51 @@ class PageController extends Controller
 
     //     return redirect()->route('home')->with('success', 'Booking request received. We will confirm within 30 minutes.');
     // }
-    public function storeBooking(Request $request): RedirectResponse
+//     public function storeBooking(Request $request): RedirectResponse
+// {
+//     $data = $request->validate([
+//         'pickup'        => 'required|string|max:255',
+//         'dropoff'       => 'required|string|max:255',
+//         'pickup_date'   => 'required|date|after_or_equal:today',
+//         'pickup_time'   => 'required',
+//         'passengers'    => 'required|integer|min:1|max:8',
+//         'vehicle'       => 'required|string|max:100',
+//         'flight_number' => 'nullable|string|max:100',
+//         'name'          => 'required|string|max:255',
+//         'email'         => 'required|email|max:255',
+//         'phone'         => 'required|string|max:50',
+//         'notes'         => 'nullable|string|max:2000',
+//     ]);
+
+//     $fleet = collect(config('site.fleet', []));
+
+//     $vehicle = $fleet->firstWhere('slug', $data['vehicle']);
+
+//     $data['vehicle_name'] = $vehicle['name'] ?? $data['vehicle'];
+
+//     Mail::html(
+//         view('emails.booking-request', [
+//             'booking' => $data,
+//         ])->render(),
+//         function ($message) use ($data) {
+//             $message
+//                 ->to(config('site.email'))
+//                 ->replyTo($data['email'], $data['name'])
+//                 ->subject('New Booking Request - ' . $data['vehicle_name']);
+//         }
+//     );
+
+//     return redirect()
+//         ->to(route('contact') . '#book')
+//         ->with('booking_submitted', true);
+// }
+public function storeBooking(Request $request): RedirectResponse
 {
     $data = $request->validate([
         'pickup'        => 'required|string|max:255',
         'dropoff'       => 'required|string|max:255',
         'pickup_date'   => 'required|date|after_or_equal:today',
-        'pickup_time'   => 'required',
+        'pickup_time'   => 'required|string',
         'passengers'    => 'required|integer|min:1|max:8',
         'vehicle'       => 'required|string|max:100',
         'flight_number' => 'nullable|string|max:100',
@@ -230,23 +268,94 @@ class PageController extends Controller
         'notes'         => 'nullable|string|max:2000',
     ]);
 
-    $fleet = collect(config('site.fleet', []));
+    $vehicle = collect(config('site.fleet', []))
+        ->firstWhere('slug', $data['vehicle']);
 
-    $vehicle = $fleet->firstWhere('slug', $data['vehicle']);
+    $data['vehicle_name'] =
+        $vehicle['name'] ?? $data['vehicle'];
 
-    $data['vehicle_name'] = $vehicle['name'] ?? $data['vehicle'];
+    try {
 
-    Mail::html(
-        view('emails.booking-request', [
-            'booking' => $data,
-        ])->render(),
-        function ($message) use ($data) {
-            $message
-                ->to(config('site.email'))
-                ->replyTo($data['email'], $data['name'])
-                ->subject('New Booking Request - ' . $data['vehicle_name']);
-        }
-    );
+        /*
+        |--------------------------------------------------------------------------
+        | MAIL 1: ADMIN B KO BOOKING DETAILS
+        |--------------------------------------------------------------------------
+        |
+        | From     = B
+        | To       = B
+        | Reply-To = User A
+        |
+        */
+
+        Mail::send(
+            'emails.booking-request',
+            ['booking' => $data],
+            function ($message) use ($data) {
+
+                $message
+                    ->from(
+                        config('mail.from.address'),
+                        config('mail.from.name')
+                    )
+                    ->to(
+                        config('mail.from.address'),
+                        'Europe Chauffeur'
+                    )
+                    ->replyTo(
+                        $data['email'],
+                        $data['name']
+                    )
+                    ->subject(
+                        'New Booking Request - ' .
+                        $data['vehicle_name']
+                    );
+            }
+        );
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | MAIL 2: USER A KO THANK YOU MAIL
+        |--------------------------------------------------------------------------
+        |
+        | From = B
+        | To   = User A
+        |
+        */
+
+        Mail::send(
+            'emails.booking-confirmation',
+            ['booking' => $data],
+            function ($message) use ($data) {
+
+                $message
+                    ->from(
+                        config('mail.from.address'),
+                        config('mail.from.name')
+                    )
+                    ->to(
+                        $data['email'],
+                        $data['name']
+                    )
+                    ->subject(
+                        'We Received Your Booking Request | Europe Chauffeur'
+                    );
+            }
+        );
+
+
+    } catch (\Throwable $e) {
+
+        report($e);
+
+        return back()
+            ->withInput()
+            ->with(
+                'booking_error',
+                'Sorry, your booking request could not be sent. Please try again.'
+            );
+    }
+
 
     return redirect()
         ->to(route('contact') . '#book')
