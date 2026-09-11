@@ -4,7 +4,7 @@
     <section class="hero">
         <div class="hero-media">
             <img src="{{ asset('images/home/hero-vienna.jpg') }}"
-                 alt="Black Mercedes-Benz S-Class chauffeur car at the Vienna State Opera at dusk"
+                 alt="Black luxury veichleS-Class chauffeur car at the Vienna State Opera at dusk"
                  width="1920" height="1280">
         </div>
         <div class="hero-veil"></div>
@@ -98,7 +98,7 @@
     <section class="section bg-obsidian">
         <div class="container-lux">
             <div class="section-top section-new">
-                <x-section-header eyebrow="The Fleet" title="An exclusively Mercedes-Benz fleet." tone="light"
+                <x-section-header eyebrow="The Fleet" title="An exclusively luxury veichlefleet." tone="light"
                     intro="Meticulously maintained, immaculately presented, and refreshed on a rolling schedule. Choose the vehicle that fits your journey — sedan, first-class, or luxury van." />
                 {{-- <div class="flex justify-end">
                     <a href="{{ url('/fleet') }}" class="btn-ghost-light">Explore the fleet <x-icon name="arrow-right" class="icon sm" /></a>

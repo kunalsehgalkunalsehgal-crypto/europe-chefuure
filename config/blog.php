@@ -41,7 +41,7 @@ return [
         [
             'slug' => 'vienna-to-salzburg-private-chauffeur',
             'title' => 'Vienna to Salzburg by Private Chauffeur',
-            'excerpt' => 'Travel between Vienna and Salzburg in comfort with a private Mercedes-Benz chauffeur service built around your schedule.',
+            'excerpt' => 'Travel between Vienna and Salzburg in comfort with a private luxury veichlechauffeur service built around your schedule.',
             'category' => 'Destinations',
             'date' => 'September 8, 2026',
             'read_time' => '4 min read',
@@ -100,7 +100,7 @@ return [
                 [
                     'title' => 'Comfort for longer journeys',
                     'body' => [
-                        'A well-presented Mercedes-Benz vehicle, professional chauffeur and clear route planning help make longer European transfers feel more relaxed.',
+                        'A well-presented luxury veichles, professional chauffeur and clear route planning help make longer European transfers feel more relaxed.',
                     ],
                 ],
             ],
@@ -127,7 +127,7 @@ return [
                 [
                     'title' => 'Privacy and comfort matter',
                     'body' => [
-                        'A quiet Mercedes-Benz cabin gives executives a more private and comfortable way to travel between appointments.',
+                        'A quiet luxury veichlecabin gives executives a more private and comfortable way to travel between appointments.',
                         'Professional chauffeurs also understand the importance of presentation, discretion and clear timing.',
                     ],
                 ],
@@ -176,13 +176,13 @@ return [
 
         [
             'slug' => 'choose-mercedes-chauffeur-vehicle',
-            'title' => 'Which Mercedes-Benz Chauffeur Vehicle Is Right for Your Journey?',
+            'title' => 'Which luxury veichleChauffeur Vehicle Is Right for Your Journey?',
             'excerpt' => 'E-Class, S-Class, V-Class or Vito? Choose the vehicle that fits your passengers, luggage and travel style.',
             'category' => 'Our Fleet',
             'date' => 'August 30, 2026',
             'read_time' => '4 min read',
             'image' => 'images/fleet/s-class.jpg',
-            'description' => 'Compare the Mercedes-Benz chauffeur vehicles available from Europe Chauffeur for private and business travel.',
+            'description' => 'Compare the luxury veichlechauffeur vehicles available from Europe Chauffeur for private and business travel.',
             'intro' => 'The right chauffeur vehicle depends on how many people are travelling, how much luggage you have and the kind of journey you are planning.',
             'sections' => [
                 [

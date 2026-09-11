@@ -5,7 +5,7 @@ return [
     'legalName' => 'Europe Chauffeur',
     'domain' => 'europechauffeur.com',
     'tagline' => 'Luxury chauffeur services across Europe',
-    'description' => 'Premium chauffeur-driven transportation across Europe. Based in Vienna, Austria — airport transfers, business travel, VIP tours, and multi-country journeys in Mercedes-Benz vehicles.',
+    'description' => 'Premium chauffeur-driven transportation across Europe. Based in Vienna, Austria — airport transfers, business travel, VIP tours, and multi-country journeys in luxury veichless.',
     'phone' => '+43 660 7730236',
     'phoneHref' => 'tel:+436607730236',
     'whatsapp' => '436607730236',
@@ -58,7 +58,7 @@ return [
             'content' => 'Experience professional, discreet, and seamless transportation for executives, business travellers, and corporate delegations, with dedicated chauffeurs and premium vehicles tailored to your schedule.',
             'bullets' => [
                 'Professional English-speaking chauffeurs',
-                'Quiet Mercedes-Benz vehicles',
+                'Quiet luxury veichless',
                 'Multi-stop schedules',
                 'Corporate invoicing available',
                 'Flexible hourly or daily hire',
@@ -69,7 +69,7 @@ return [
             'slug' => 'private-chauffeur',
             'title' => 'Private Chauffeur',
             'short' => 'Enjoy our full-day and hourly chauffeur services  at your personal disposal.',
-            'description' => 'Private chauffeur hire for hourly, full-day and multi-day journeys with a luxury Mercedes-Benz vehicle.',
+            'description' => 'Private chauffeur hire for hourly, full-day and multi-day journeys with a luxury luxury veichles.',
             'image' => 'Private Chauffeur.webp',
             'content' => 'Enjoy the freedom of a dedicated professional chauffeur and luxury vehicle at your personal disposal, available by the hour or for a full day. Whether for business, sightseeing, shopping, special occasions, or private travel, experience seamless, discreet, and first-class transportation tailored entirely to your schedule.',
             'bullets' => [
@@ -77,7 +77,7 @@ return [
                 'Door-to-door private service',
                 'Flexible waiting time',
                 'Personal route planning',
-                'Premium Mercedes-Benz fleet',
+                'Premium luxury veichlefleet',
                 'Ideal for families, guests and executives',
             ],
         ],
@@ -90,7 +90,7 @@ return [
             'content' => 'Our VIP and executive travel service focuses on privacy, timing and presentation. Each journey is carefully planned by our concierge team and delivered by experienced chauffeurs who understand protocol, discretion and premium guest care.',
             'bullets' => [
                 'Discreet chauffeur service',
-                'First-class Mercedes-Benz vehicles',
+                'First-class luxury veichless',
                 'VIP airport and hotel transfers',
                 'Event and protocol coordination',
                 'Privacy-focused travel planning',
@@ -124,7 +124,7 @@ return [
                 'Tailor-made routes',
                 'Multi-city and multi-country trips',
                 'Flexible travel schedule',
-                'Chauffeur-driven Mercedes-Benz vehicle',
+                'Chauffeur-driven luxury veichles',
                 'Route planning support',
                 'Ideal for luxury leisure travel',
             ],
@@ -197,14 +197,14 @@ return [
 ],
 
 'destination_covers' => [
-    'hallstatt' => 'hallsate1.webp',
-    'rome' => 'rome.webp',
-    'vienna' => 'vienna.webp',
-    'budapest' => 'budapest.webp',
-    'salzburg' => 'salzburg.webp',
-    'venice' => 'venice.webp',
-    'prague' => 'prague.webp',
-    'munich' => 'munich.webp',
+    'hallstatt' => 'hallsate1 (2).webp',
+    'rome' => 'rome (2).webp',
+    'vienna' => 'vienn.webp',
+    'budapest' => 'budapest (2).webp',
+    'salzburg' => 'salzburg (2).webp',
+    'venice' => 'venice (2).webp',
+    'prague' => 'ptague.webp',
+    'munich' => 'munich (2).webp',
 ],
 
     'fleet_images' => [
@@ -217,7 +217,7 @@ return [
     //         ['q' => 'How do I book a chauffeur in Vienna or elsewhere in Europe?', 'a' => 'You can book online through our instant quote form, by phone on +43 660 7730236, or on WhatsApp. Bookings are confirmed within 30 minutes, 24 hours a day.'],
     //         ['q' => 'Do you provide airport transfers from Vienna International Airport (VIE)?', 'a' => 'Yes. We monitor every flight in real time, greet you inside the terminal with a name sign, and include waiting time and luggage assistance in the fixed price.'],
     //         ['q' => 'Can I book multi-country journeys across Europe?', 'a' => 'Absolutely. Vienna is our home, but our chauffeurs regularly drive to Salzburg, Prague, Budapest, Munich, Zurich, Venice and beyond. We handle border formalities, tolls and route planning.'],
-    //         ['q' => 'What vehicles are in your fleet?', 'a' => 'Our fleet consists exclusively of black Mercedes-Benz vehicles: E-Class and S-Class sedans for 1–3 passengers, and V-Class and Vito vans for up to 8 passengers with generous luggage capacity.'],
+    //         ['q' => 'What vehicles are in your fleet?', 'a' => 'Our fleet consists exclusively of black luxury veichless: E-Class and S-Class sedans for 1–3 passengers, and V-Class and Vito vans for up to 8 passengers with generous luggage capacity.'],
     //         ['q' => 'Are your drivers English-speaking?', 'a' => 'Every chauffeur speaks fluent English in addition to German. Several drivers also speak Italian, French, Russian or Arabic — just let us know when booking.'],
     //         ['q' => 'Do you offer fixed prices?', 'a' => 'Yes. Every quote is a fully-inclusive fixed price: chauffeur, vehicle, fuel, tolls, parking, taxes, meet-and-greet and complimentary waiting time. No hidden fees.'],
     //     ],
@@ -228,7 +228,7 @@ return [
 
     ['q' => 'Can I book multi-country journeys across Europe?', 'a' => 'Absolutely. Vienna is our home, but our chauffeurs regularly drive to Salzburg, Prague, Budapest, Munich, Zurich, Venice and beyond. We handle border formalities, tolls and route planning.'],
 
-    ['q' => 'What vehicles are in your fleet?', 'a' => 'Our fleet consists exclusively of black Mercedes-Benz vehicles: E-Class and S-Class sedans for 1–3 passengers, and V-Class and Vito vans for up to 8 passengers with generous luggage capacity.'],
+    ['q' => 'What vehicles are in your fleet?', 'a' => 'Our fleet consists exclusively of black luxury veichless: E-Class and S-Class sedans for 1–3 passengers, and V-Class and Vito vans for up to 8 passengers with generous luggage capacity.'],
 
     ['q' => 'Are your drivers English-speaking?', 'a' => 'Every chauffeur speaks fluent English in addition to German. Several drivers also speak Italian, French, Russian or Arabic — just let us know when booking.'],
 

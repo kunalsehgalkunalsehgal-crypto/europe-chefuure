@@ -14,7 +14,7 @@
         <div class="container-lux detail-grid">
             <div>
                 <x-section-header eyebrow="Chauffeur service" :title="'Luxury chauffeur transfers in '.$d['name'].'.'"
-                    :intro="'Europe Chauffeur delivers premium chauffeur-driven transportation throughout '.$d['name'].' and to surrounding destinations. From airport arrivals to full-day sightseeing, every journey is handled by a professional driver in a Mercedes-Benz vehicle.'" />
+                    :intro="'Europe Chauffeur delivers premium chauffeur-driven transportation throughout '.$d['name'].' and to surrounding destinations. From airport arrivals to full-day sightseeing, every journey is handled by a professional driver in a luxury veichles.'" />
 
                 <h2 class="mt-14" style="font-size:1.75rem;">What we offer in {{ $d['name'] }}</h2>
                 <ul class="check-list">

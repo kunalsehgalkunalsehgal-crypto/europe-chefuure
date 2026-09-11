@@ -16,7 +16,7 @@ class PageController extends Controller
         //     ['q' => 'How do I book a chauffeur in Vienna or elsewhere in Europe?', 'a' => 'You can book online through our instant quote form, by phone on +43 660 7730236, or on WhatsApp. Bookings are confirmed within 30 minutes, 24 hours a day.'],
         //     ['q' => 'Do you provide airport transfers from Vienna International Airport (VIE)?', 'a' => 'Yes. We monitor every flight in real time, greet you inside the terminal with a name sign, and include waiting time and luggage assistance in the fixed price.'],
         //     ['q' => 'Can I book multi-country journeys across Europe?', 'a' => 'Absolutely. Vienna is our home, but our chauffeurs regularly drive to Salzburg, Prague, Budapest, Munich, Zurich, Venice and beyond. We handle border formalities, tolls and route planning.'],
-        //     ['q' => 'What vehicles are in your fleet?', 'a' => 'Our fleet consists exclusively of black Mercedes-Benz vehicles: E-Class and S-Class sedans for 1–3 passengers, and V-Class and Vito vans for up to 8 passengers with generous luggage capacity.'],
+        //     ['q' => 'What vehicles are in your fleet?', 'a' => 'Our fleet consists exclusively of black luxury veichless: E-Class and S-Class sedans for 1–3 passengers, and V-Class and Vito vans for up to 8 passengers with generous luggage capacity.'],
         //     ['q' => 'Are your drivers English-speaking?', 'a' => 'Every chauffeur speaks fluent English in addition to German. Several drivers also speak Italian, French, Russian or Arabic — just let us know when booking.'],
         //     ['q' => 'Do you offer fixed prices?', 'a' => 'Yes. Every quote is a fully-inclusive fixed price: chauffeur, vehicle, fuel, tolls, parking, taxes, meet-and-greet and complimentary waiting time. No hidden fees.'],
         // ];
@@ -67,7 +67,7 @@ class PageController extends Controller
 
         return view('home', [
             'title' => 'Luxury Chauffeur Vienna & Europe | Airport Transfers | Europe Chauffeur',
-            'description' => 'Premium chauffeur service in Vienna and across Europe. Mercedes-Benz fleet, English-speaking drivers, airport transfers, business travel & VIP tours. Fixed prices, 24/7.',
+            'description' => 'Premium chauffeur service in Vienna and across Europe. luxury veichlefleet, English-speaking drivers, airport transfers, business travel & VIP tours. Fixed prices, 24/7.',
             // 'homeFaqs' => $homeFaqs,
             'homeFaqs' => config('site.faqs'),
             'destinationCards' => $destinationCards,
@@ -103,7 +103,7 @@ class PageController extends Controller
 {
     return view('about', [
         'title' => 'About Europe Chauffeur | Luxury Chauffeur Service in Vienna & Europe',
-        'description' => 'Learn about Europe Chauffeur, our professional chauffeurs, luxury Mercedes-Benz fleet and premium chauffeur services from Vienna across Europe.',
+        'description' => 'Learn about Europe Chauffeur, our professional chauffeurs, luxury luxury veichlefleet and premium chauffeur services from Vienna across Europe.',
     ]);
 }
 
@@ -465,7 +465,7 @@ public function storeBooking(Request $request): RedirectResponse
     {
         return view('fleet.index', [
             'title'       => 'Our Fleet | Europe Chauffeur',
-            'description' => 'Discover our exclusive Mercedes-Benz fleet — E-Class, S-Class, V-Class and Vito — available for luxury chauffeur hire across Europe.',
+            'description' => 'Discover our exclusive luxury veichlefleet — E-Class, S-Class, V-Class and Vito — available for luxury chauffeur hire across Europe.',
             'fleet'       => config('site.fleet'),
             // 'fleetImages' => config('site.fleet_images'),
                     'images' => config('site.fleet_images'),
@@ -514,7 +514,7 @@ public function storeBooking(Request $request): RedirectResponse
 $others = $destinations->where('slug', '!=', $destination) ->take(6) ->values() ->all();
         return view('destinations.show', [
             'title'        => 'Chauffeur to ' . $current['name'] . ' | Europe Chauffeur',
-            'description'  => 'Luxury chauffeur service to ' . $current['name'] . '. Fixed prices, professional drivers, Mercedes-Benz fleet.',
+            'description'  => 'Luxury chauffeur service to ' . $current['name'] . '. Fixed prices, professional drivers, luxury veichlefleet.',
             'd'            => $current,
             'image'        => $covers[$destination] ?? 'vienna-thumb.jpg',
             'covers'       => $covers,

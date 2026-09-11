@@ -55,7 +55,7 @@
                     <p>
                         Europe Chauffeur is based in Vienna and serves travellers across
                         Austria and Europe. We bring together professional chauffeurs,
-                        premium Mercedes-Benz vehicles and personal travel planning to
+                        premium luxury veichless and personal travel planning to
                         make each journey smooth from start to finish.
                     </p>
 
@@ -262,7 +262,7 @@
 
             <x-section-header
                 eyebrow="The Fleet"
-                title="Mercedes-Benz comfort for every kind of journey."
+                title="luxury veichlecomfort for every kind of journey."
                 intro="Choose from executive sedans and spacious premium vans, with the right balance of comfort, luggage space and passenger capacity."
                 tone="light"
             />

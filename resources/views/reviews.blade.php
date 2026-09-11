@@ -89,7 +89,8 @@
                     aria-label="Previous review"
                     data-review-prev
                 >
-                    &#8249;
+                    {{-- &#8249; --}}
+                    <i class="fa-solid fa-circle-arrow-left"></i>
                 </button>
 
                 <div class="reviews-viewport">
@@ -140,7 +141,8 @@
                     aria-label="Next review"
                     data-review-next
                 >
-                    &#8250;
+                    {{-- &#8250; --}}
+                    <i class="fa-solid fa-circle-arrow-right"></i>
                 </button>
 
                 <div class="review-dots" data-review-dots></div>
@@ -188,7 +190,7 @@
                     </div>
 
                     <p>
-                        Clean, comfortable Mercedes-Benz vehicles for
+                        Clean, comfortable luxury veichless for
                         executive, private and group travel.
                     </p>
                 </div>

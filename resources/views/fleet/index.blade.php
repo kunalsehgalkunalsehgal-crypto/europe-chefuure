@@ -1,7 +1,7 @@
 <x-layouts.app :title="$title" :description="$description">
     <div class="page-hero">
         <div class="container-lux">
-            <x-section-header eyebrow="The Fleet" title="An exclusively Mercedes-Benz fleet."
+            <x-section-header eyebrow="The Fleet" title="An exclusively luxury veichlefleet."
                 intro="Meticulously maintained, immaculately presented. Choose the vehicle that fits your journey." />
 
             <div class="card-grid cols-2">
