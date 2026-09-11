@@ -19,7 +19,7 @@ return [
                     'title' => 'A smoother airport arrival',
                     'body' => [
                         'Your journey starts before you leave the terminal. With a pre-booked chauffeur, your pickup is already planned around your arrival details.',
-                        'Europe Chauffeur offers flight monitoring, meet-and-greet service, luggage assistance and a comfortable Mercedes-Benz vehicle for airport transfers in Vienna.',
+                        'Europe Chauffeur offers flight monitoring, meet-and-greet service, luggage assistance and a comfortable  vehicle for airport transfers in Vienna.',
                     ],
                 ],
                 [
