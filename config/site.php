@@ -230,7 +230,7 @@ return [
 
     ['q' => 'What vehicles are in your fleet?', 'a' => 'Our fleet consists exclusively of black luxury veichless: E-Class and S-Class sedans for 1–3 passengers, and V-Class and Vito vans for up to 8 passengers with generous luggage capacity.'],
 
-    ['q' => 'Are your drivers English-speaking?', 'a' => 'Every chauffeur speaks fluent English in addition to German. Several drivers also speak Italian, French, Russian or Arabic — just let us know when booking.'],
+    ['q' => 'Are your drivers English-speaking?', 'a' => 'Every chauffeur speaks fluent English in addition to German. Several drivers also speak English, German, Punjabi, Hindi & Arabic — just let us know when booking.'],
 
     ['q' => 'Do you offer fixed prices?', 'a' => 'Yes. Every quote is a fully-inclusive fixed price: chauffeur, vehicle, fuel, tolls, parking, taxes, meet-and-greet and complimentary waiting time. No hidden fees.'],
 ],

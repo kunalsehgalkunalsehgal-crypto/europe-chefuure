@@ -13,7 +13,7 @@
     <meta property="og:description" content="{{ $description ?? config('site.description') }}">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="{{ $canonical ?? url()->current() }}">
-    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    {{-- <link rel="icon" href="{{ asset('abcd.png') }}" type="image/x-icon"> --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     @if(isset($schema))

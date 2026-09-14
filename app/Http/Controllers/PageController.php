@@ -48,7 +48,7 @@ class PageController extends Controller
 
         $pillars = [
             ['icon' => 'award', 'title' => 'Professional Chauffeurs', 'body' => 'Vetted, uniformed, discreet. English-speaking as standard.'],
-            ['icon' => 'sparkles', 'title' => 'Luxury Mercedes Fleet', 'body' => 'Executive sedans and first-class vans, immaculately maintained.'],
+            ['icon' => 'sparkles', 'title' => 'Premium Fleet', 'body' => 'Executive sedans and first-class vans, immaculately maintained.'],
             ['icon' => 'shield-check', 'title' => 'Fixed Transparent Pricing', 'body' => 'All-inclusive quotes — no surprises on tolls, waiting or fuel.'],
             ['icon' => 'languages', 'title' => 'English-Speaking Drivers', 'body' => 'Multilingual chauffeurs available on request.'],
             ['icon' => 'plane', 'title' => 'Real-Time Flight Monitoring', 'body' => 'Automatic pickup adjustments for delays or early arrivals.'],

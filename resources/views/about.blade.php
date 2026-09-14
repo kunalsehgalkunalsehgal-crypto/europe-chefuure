@@ -193,7 +193,7 @@
                         <div class="pillar-icon">
                             <x-icon name="globe2" class="icon md text-gold-deep" />
                         </div>
-                        <h3>Pan-European Coverage</h3>
+                        <h3>Central Europe coverage</h3>
                     </div>
                     <p>Vienna is our home, with chauffeur journeys available across major European destinations.</p>
                 </div>

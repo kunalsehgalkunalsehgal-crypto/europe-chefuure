@@ -127,7 +127,7 @@ return [
                 [
                     'title' => 'Privacy and comfort matter',
                     'body' => [
-                        'A quiet luxury veichlecabin gives executives a more private and comfortable way to travel between appointments.',
+                        'A quiet luxury veichle cabin gives executives a more private and comfortable way to travel between appointments.',
                         'Professional chauffeurs also understand the importance of presentation, discretion and clear timing.',
                     ],
                 ],
