@@ -19,8 +19,12 @@
                     <a href="{{ config('site.emailHref') }}">{{ config('site.email') }}</a>
                 </li>
                 <li>
+                    <x-icon name="mail" class="icon sm text-gold" />
+                    <a href="{{ config('site.gmailHref') }}">{{ config('site.gmail') }}</a>
+                </li>
+                <li>
                     <x-icon name="mappin" class="icon sm text-gold" />
-                    <span>Vienna, Austria — serving all of Europe</span>
+                    <span>Eileen Grey Gasse 5/6, 1229 Vienna, Austria</span>
                 </li>
             </ul>
         </div>

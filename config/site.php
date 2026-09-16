@@ -11,6 +11,8 @@ return [
     'whatsapp' => '436607730236',
     'whatsappUrl' => 'https://wa.me/436607730236',
     'email' => 'info@europechauffeur.com',
+    'gmail' => 'europechauffeur@gmail.com',
+    'gmailHref' => 'mailto:europechauffeur@gmail.com',
     'emailHref' => 'mailto:info@europechauffeur.com',
     'address' => [
         'city' => 'Vienna',
