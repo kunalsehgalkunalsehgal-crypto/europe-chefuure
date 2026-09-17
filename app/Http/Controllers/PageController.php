@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Mail;
-
+use App\Models\Review;
 class PageController extends Controller
 {
     public function home(): View
@@ -159,33 +159,46 @@ class PageController extends Controller
     //         'Reviews & Testimonials | Europe Chauffeur'
     //     );
     // }
-    public function reviews(): View
+//     public function reviews(): View
+// {
+//     $reviews = [
+//         [
+//             'quote' => 'Flawless from booking to drop-off. Our chauffeur greeted us with our name inside the terminal and the S-Class was pristine. Europe Chauffeur is now our standard for Vienna travel.',
+//             'name' => 'Alexander M.',
+//             'role' => 'Managing Director, London',
+//         ],
+//         [
+//             'quote' => 'We booked a five-day itinerary from Vienna to Salzburg, Hallstatt and Prague. Every detail was thought of — from bottled water to route timing around openings. Truly first-class.',
+//             'name' => 'Priya K.',
+//             'role' => 'Private Client, Dubai',
+//         ],
+//         [
+//             'quote' => 'For our board meeting in Munich we needed absolute reliability. Cars arrived early, drivers were impeccable, invoicing was clear. Highly recommended for corporate travel.',
+//             'name' => 'Michael R.',
+//             'role' => 'COO, Zurich',
+//         ],
+//     ];
+
+//     return view('reviews', [
+//         'title' => 'Client Reviews & Testimonials | Europe Chauffeur',
+//         'description' => 'Read client experiences with Europe Chauffeur for luxury airport transfers, business travel, private tours and chauffeur journeys across Europe.',
+//         'reviews' => $reviews,
+//     ]);
+// }
+public function reviews(): View
 {
-    $reviews = [
-        [
-            'quote' => 'Flawless from booking to drop-off. Our chauffeur greeted us with our name inside the terminal and the S-Class was pristine. Europe Chauffeur is now our standard for Vienna travel.',
-            'name' => 'Alexander M.',
-            'role' => 'Managing Director, London',
-        ],
-        [
-            'quote' => 'We booked a five-day itinerary from Vienna to Salzburg, Hallstatt and Prague. Every detail was thought of — from bottled water to route timing around openings. Truly first-class.',
-            'name' => 'Priya K.',
-            'role' => 'Private Client, Dubai',
-        ],
-        [
-            'quote' => 'For our board meeting in Munich we needed absolute reliability. Cars arrived early, drivers were impeccable, invoicing was clear. Highly recommended for corporate travel.',
-            'name' => 'Michael R.',
-            'role' => 'COO, Zurich',
-        ],
-    ];
+    $reviews = Review::where('status', 'approved')
+        ->latest()
+        ->get();
 
     return view('reviews', [
         'title' => 'Client Reviews & Testimonials | Europe Chauffeur',
+
         'description' => 'Read client experiences with Europe Chauffeur for luxury airport transfers, business travel, private tours and chauffeur journeys across Europe.',
+
         'reviews' => $reviews,
     ]);
 }
-
     // public function faq(): View
     // {
     //     return $this->stub(

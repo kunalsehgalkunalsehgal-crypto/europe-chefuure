@@ -1742,3 +1742,159 @@ p {
     }
 
 }
+
+
+
+
+/* ==========================================
+   CUSTOMER REVIEW FORM
+   ========================================== */
+
+.review-form {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+}
+
+.review-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.review-form-grid:first-child {
+    margin-top: 0;
+}
+
+
+/* Rating Stars */
+
+.review-rating {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: .35rem;
+}
+
+.review-rating input {
+    display: none;
+}
+
+.review-rating label {
+    font-size: 2rem;
+    line-height: 1;
+    color: #d8d4cb;
+    cursor: pointer;
+
+    transition:
+        color .2s ease,
+        transform .2s ease;
+}
+
+.review-rating label:hover,
+.review-rating label:hover ~ label,
+.review-rating input:checked ~ label {
+    color: var(--gold);
+}
+
+.review-rating label:hover {
+    transform: scale(1.08);
+}
+
+
+/* Mobile */
+
+@media (max-width: 767px) {
+
+    .review-form {
+        padding: 1.25rem;
+    }
+
+    .review-form-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+}
+
+.review-filters {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    margin-bottom: 30px;
+
+    padding: 10px;
+
+    background: #fff;
+
+    border: 1px solid #e6e3da;
+}
+
+
+.review-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 16px;
+
+    color: #17181b;
+    background: transparent;
+
+    border: 1px solid #ddd8ce;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition: .2s ease;
+}
+
+
+.review-filter span {
+    min-width: 22px;
+
+    padding: 2px 6px;
+
+    background: #eeeae2;
+
+    text-align: center;
+
+    font-size: 11px;
+}
+
+
+.review-filter:hover {
+    border-color: #cba15e;
+    color: #17181b;
+}
+
+
+.review-filter.active {
+    background: #17181b;
+    border-color: #17181b;
+    color: #fff;
+}
+
+
+.review-filter.active span {
+    background: #cba15e;
+    color: #17181b;
+}
+
+
+@media(max-width: 600px) {
+
+    .review-filters {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .review-filter {
+        justify-content: space-between;
+    }
+
+}

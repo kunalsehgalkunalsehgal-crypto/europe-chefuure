@@ -96,7 +96,7 @@
                 <div class="reviews-viewport">
                     <div class="reviews-track" data-review-track>
 
-                        @foreach($reviews as $review)
+                        {{-- @foreach($reviews as $review)
 
                             <div class="review-slide">
 
@@ -130,7 +130,90 @@
 
                             </div>
 
-                        @endforeach
+                        @endforeach --}}
+                        @forelse($reviews as $review)
+
+    <div class="review-slide">
+
+        <figure class="testimonial">
+
+            {{-- STARS --}}
+            <div class="stars">
+
+                @for($i = 1; $i <= 5; $i++)
+
+                    @if($i <= $review->rating)
+
+                        <x-icon
+                            name="star"
+                            class="icon sm"
+                            style="fill:currentColor;"
+                        />
+
+                    @endif
+
+                @endfor
+
+            </div>
+
+
+            {{-- REVIEW MESSAGE --}}
+            <blockquote>
+                &ldquo;{{ $review->review }}&rdquo;
+            </blockquote>
+
+
+            {{-- CUSTOMER --}}
+            <figcaption>
+
+                <div class="name">
+                    {{ $review->name }}
+                </div>
+
+
+                <div class="role">
+
+                    @if($review->travel_type)
+                        {{ $review->travel_type }}
+                    @endif
+
+
+                    @if($review->city || $review->country)
+
+                        @if($review->travel_type)
+                            &nbsp;·&nbsp;
+                        @endif
+
+                        {{ collect([
+                            $review->city,
+                            $review->country
+                        ])->filter()->join(', ') }}
+
+                    @endif
+
+                </div>
+
+            </figcaption>
+
+        </figure>
+
+    </div>
+
+@empty
+
+    <div style="
+        width:100%;
+        padding:3rem;
+        text-align:center;
+    ">
+
+        <p style="color:var(--muted-foreground);">
+            Client reviews will appear here soon.
+        </p>
+
+    </div>
+
+@endforelse
 
                     </div>
                 </div>
@@ -153,6 +236,330 @@
     </section>
 
 
+    {{-- SUBMIT REVIEW --}}
+<section class="section bg-card border-y" id="submit-review">
+
+    <div class="container-lux">
+
+        <x-section-header
+            eyebrow="Share Your Experience"
+            title="Tell us about your journey."
+            intro="Your feedback helps us improve our service. Reviews are checked before they appear publicly."
+            align="center"
+        />
+
+        <div
+            style="
+                max-width:850px;
+                margin:3rem auto 0;
+            "
+        >
+
+            {{-- SUCCESS MESSAGE --}}
+            @if(session('review_success'))
+
+                <div style="
+                    padding:1rem 1.25rem;
+                    margin-bottom:2rem;
+                    background:#eef8ee;
+                    border:1px solid #cde6cd;
+                    color:#285c2d;
+                ">
+                    {{ session('review_success') }}
+                </div>
+
+            @endif
+
+
+            {{-- VALIDATION ERRORS --}}
+            @if($errors->any())
+
+                <div style="
+                    padding:1rem 1.25rem;
+                    margin-bottom:2rem;
+                    background:#fff1f1;
+                    border:1px solid #f0caca;
+                    color:#8a2525;
+                ">
+
+                    <strong>Please check the form.</strong>
+
+                    <ul style="margin-top:.75rem;padding-left:1.25rem;">
+
+                        @foreach($errors->all() as $error)
+
+                            <li style="margin-top:.25rem;">
+                                {{ $error }}
+                            </li>
+
+                        @endforeach
+
+                    </ul>
+
+                </div>
+
+            @endif
+
+
+            <form
+                method="POST"
+                action="{{ route('reviews.store') }}"
+                class="review-form"
+            >
+
+                @csrf
+
+
+                {{-- NAME + EMAIL --}}
+                <div class="review-form-grid">
+
+                    <div class="bw-field">
+
+                        <label>
+                            Full Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            name="name"
+                            value="{{ old('name') }}"
+                            placeholder="Your full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="bw-field">
+
+                        <label>
+                            Email Address *
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            value="{{ old('email') }}"
+                            placeholder="your@email.com"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                {{-- PHONE + CITY --}}
+                <div class="review-form-grid">
+
+                    <div class="bw-field">
+
+                        <label>
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="text"
+                            name="phone"
+                            value="{{ old('phone') }}"
+                            placeholder="+43..."
+                        >
+
+                    </div>
+
+
+                    <div class="bw-field">
+
+                        <label>
+                            City
+                        </label>
+
+                        <input
+                            type="text"
+                            name="city"
+                            value="{{ old('city') }}"
+                            placeholder="London"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                {{-- COUNTRY + TRAVEL TYPE --}}
+                <div class="review-form-grid">
+
+                    <div class="bw-field">
+
+                        <label>
+                            Country
+                        </label>
+
+                        <input
+                            type="text"
+                            name="country"
+                            value="{{ old('country') }}"
+                            placeholder="United Kingdom"
+                        >
+
+                    </div>
+
+
+                    <div class="bw-field">
+
+                        <label>
+                            Travel Type
+                        </label>
+
+                        <select name="travel_type">
+
+                            <option value="">
+                                Select journey type
+                            </option>
+
+                            <option value="Airport Transfer"
+                                @selected(old('travel_type') === 'Airport Transfer')>
+                                Airport Transfer
+                            </option>
+
+                            <option value="Business Travel"
+                                @selected(old('travel_type') === 'Business Travel')>
+                                Business Travel
+                            </option>
+
+                            <option value="Private Chauffeur"
+                                @selected(old('travel_type') === 'Private Chauffeur')>
+                                Private Chauffeur
+                            </option>
+
+                            <option value="Sightseeing Tour"
+                                @selected(old('travel_type') === 'Sightseeing Tour')>
+                                Sightseeing Tour
+                            </option>
+
+                            <option value="Hotel Transfer"
+                                @selected(old('travel_type') === 'Hotel Transfer')>
+                                Hotel Transfer
+                            </option>
+
+                            <option value="Other"
+                                @selected(old('travel_type') === 'Other')>
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                {{-- JOURNEY DATE --}}
+                <div class="bw-field" style="margin-top:1.5rem;">
+
+                    <label>
+                        Journey Date
+                    </label>
+
+                    <input
+                        type="date"
+                        name="journey_date"
+                        value="{{ old('journey_date') }}"
+                    >
+
+                </div>
+
+
+                {{-- RATING --}}
+                <div style="margin-top:1.75rem;">
+
+                    <label style="
+                        display:block;
+                        margin-bottom:.75rem;
+                        font-size:.9rem;
+                        font-weight:500;
+                    ">
+                        Rating *
+                    </label>
+
+                    <div class="review-rating">
+
+                        @for($i = 5; $i >= 1; $i--)
+
+                            <input
+                                type="radio"
+                                id="rating-{{ $i }}"
+                                name="rating"
+                                value="{{ $i }}"
+                                {{ old('rating') == $i ? 'checked' : '' }}
+                                required
+                            >
+
+                            <label
+                                for="rating-{{ $i }}"
+                                title="{{ $i }} stars"
+                            >
+                                ★
+                            </label>
+
+                        @endfor
+
+                    </div>
+
+                </div>
+
+
+                {{-- REVIEW --}}
+                <div
+                    class="bw-field"
+                    style="margin-top:1.75rem;"
+                >
+
+                    <label>
+                        Your Review *
+                    </label>
+
+                    <textarea
+                        name="review"
+                        rows="6"
+                        maxlength="2000"
+                        placeholder="Tell us about your experience..."
+                        required
+                    >{{ old('review') }}</textarea>
+
+                </div>
+
+
+                {{-- SUBMIT --}}
+                <button
+                    type="submit"
+                    class="btn-gold"
+                    style="
+                        margin-top:2rem;
+                        width:100%;
+                    "
+                >
+                    Submit Review
+                    <x-icon name="arrow-right" class="icon sm" />
+                </button>
+
+
+                <p style="
+                    margin-top:1rem;
+                    text-align:center;
+                    font-size:.75rem;
+                    color:var(--muted-foreground);
+                ">
+                    Reviews are moderated before being published.
+                </p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
     {{-- WHY CLIENTS CHOOSE US --}}
     <section class="section bg-card border-y">
         <div class="container-lux">
